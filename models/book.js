@@ -8,7 +8,7 @@ var bookSchema = new mongoose.Schema(
       required: true,
     },
     likes: {
-      type: Array,
+      type: Set,
       default: [],
     },
     author: {

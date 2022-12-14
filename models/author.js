@@ -26,10 +26,6 @@ var authorSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    likedBooks: {
-      type: Array,
-      default: [],
-    },
   },
   { timestamps: true }
 );
