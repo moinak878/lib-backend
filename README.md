@@ -1,6 +1,10 @@
 # Lib-backend
 
-## API Endpoints 
+## API Endpoints :  
+
+  API Documentation : https://www.getpostman.com/collections/618091c5b739001ae107 
+  <br/> [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/618091c5b739001ae107?action=collection%2Fimport)
+
 * POST <strong>/signup</strong> - for user signup 
 * POST <strong>/signin</strong> - user signin
 * GET <strong>/signout</strong> - log out user
@@ -12,9 +16,7 @@
 * PUT <strong>/books/unlike/id</strong> - To unlike a book.
 
 ## deployed on 
-https://lib-backend-production.up.railway.app/signout
+https://lib-backend-production.up.railway.app
 
 ### Todo
 * the data should be paginated and there must be some sorting parameters to fetch the list in order of most likes or least likes
-* unique likes feature
-* thorough testing of auth
