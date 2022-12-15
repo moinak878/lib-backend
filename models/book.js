@@ -8,7 +8,7 @@ var bookSchema = new mongoose.Schema(
       required: true,
     },
     likes: {
-      type: Set,
+      type: Array,
       default: [],
     },
     author: {
@@ -19,5 +19,9 @@ var bookSchema = new mongoose.Schema(
   },
   { timeStamps: true }
 );
+
+bookSchema.virtual("numberOfLikes").get(function () {
+  return this.likes.length;
+});
 
 module.exports = mongoose.model("Book", bookSchema);

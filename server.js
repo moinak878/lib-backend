@@ -14,11 +14,11 @@ app.use(cors());
 // routes
 const authRoutes = require("./routes/auth");
 const authorRoutes = require("./routes/author");
-// const bookRoutes = require("./routes/book");
+const bookRoutes = require("./routes/book");
 
 app.use("/", authRoutes);
 app.use("/authors", authorRoutes);
-// app.use("/", bookRoutes);
+app.use("/books", bookRoutes);
 
 // DB connection
 mongoose
@@ -35,3 +35,23 @@ mongoose
 app.listen(8000, () => {
   console.log("Server is running on port 3000");
 });
+
+// const Book = require("./models/book");
+// const { faker } = require("@faker-js/faker");
+
+// for (let i = 0; i < 5; i++) {
+//   const title = faker.name
+//     .firstName()
+//     .concat(" ", faker.vehicle.fuel());
+//   const book = new Book({
+//     title: title,
+//     author: "639ab81cee1d682c5efe069c",
+//   });
+//   book.save((err, book) => {
+//     if (err) {
+//       return res.status(400).json({
+//         err: "Not able to save book in db ",
+//       });
+//     }
+//   });
+// }
