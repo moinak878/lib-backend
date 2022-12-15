@@ -6,19 +6,19 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-// routes
-const authRoutes = require("./routes/auth");
-// const authorRoutes = require("./routes/author");
-// const bookRoutes = require("./routes/book");
-
-app.use("/", authRoutes);
-// app.use("/", authorRoutes);
-// app.use("/", bookRoutes);
-
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
+
+// routes
+const authRoutes = require("./routes/auth");
+const authorRoutes = require("./routes/author");
+// const bookRoutes = require("./routes/book");
+
+app.use("/", authRoutes);
+app.use("/authors", authorRoutes);
+// app.use("/", bookRoutes);
 
 // DB connection
 mongoose
