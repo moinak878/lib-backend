@@ -30,9 +30,13 @@ exports.getBookById = async (req, res, next, id) => {
 
 exports.likeBook = async (req, res) => {
   // unique not working for now
-  await Book.findByIdAndUpdate(req.book._id, {
-    $push: { likes: req.auth._id },
-  }).exec((err, book) => {
+  await Book.findByIdAndUpdate(
+    req.book._id,
+    {
+      $addToSet: { likes: req.auth._id },
+    },
+    { new: true }
+  ).exec((err, book) => {
     if (err || !book) {
       return res.status(400).json({
         error: "No book found",
@@ -43,9 +47,13 @@ exports.likeBook = async (req, res) => {
 };
 
 exports.unlikeBook = async (req, res) => {
-  await Book.findByIdAndUpdate(req.book._id, {
-    $pull: { likes: req.auth._id },
-  }).exec((err, book) => {
+  await Book.findByIdAndUpdate(
+    req.book._id,
+    {
+      $pull: { likes: req.auth._id },
+    },
+    { new: true }
+  ).exec((err, book) => {
     if (err || !book) {
       return res.status(400).json({
         error: "No book found",
