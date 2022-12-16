@@ -20,6 +20,9 @@ var bookSchema = new mongoose.Schema(
   { timeStamps: true }
 );
 
+bookSchema.set("toObject", { virtuals: true });
+bookSchema.set("toJSON", { virtuals: true });
+
 bookSchema.virtual("numberOfLikes").get(function () {
   return this.likes.length;
 });

@@ -21,6 +21,10 @@ var authorSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    likes: {
+      type: Array,
+      default: [],
+    },
     salt: String,
     books: {
       type: Array,

@@ -5,6 +5,7 @@ exports.getAllAuthors = async (req, res) => {
   await Author.find()
     .select("name")
     .select("books")
+    .select("likes")
     .exec((err, authors) => {
       if (err || !authors) {
         return res.status(400).json({
