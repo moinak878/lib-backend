@@ -3,12 +3,24 @@ const Book = require("../models/book");
 
 exports.getAllBooks = async (req, res) => {
   await Book.find().exec((err, books) => {
+    page = req.query.page;
+    limit = req.query.limit;
     if (err || !books) {
       return res.status(400).json({
         error: "No books found",
       });
     }
-    res.json(books);
+    books = books.slice((page - 1) * limit, page * limit);
+    resultBooks = {
+      prev: {
+        page: page > 1 ? page - 1 : null,
+      },
+      next: {
+        page: page < books.length ? page + 1 : null,
+      },
+      books,
+    };
+    res.json(resultBooks);
   });
 };
 

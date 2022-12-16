@@ -18,5 +18,3 @@
 ## deployed on 
 https://lib-backend-production.up.railway.app
 
-### Todo
-* the data should be paginated and there must be some sorting parameters to fetch the list in order of most likes or least likes
