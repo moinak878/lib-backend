@@ -29,7 +29,6 @@ exports.getBookById = async (req, res, next, id) => {
 // };
 
 exports.likeBook = async (req, res) => {
-  // unique not working for now
   await Book.findByIdAndUpdate(
     req.book._id,
     {
